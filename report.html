@@ -14591,7 +14591,7 @@ J4kAAAAASUVORK5CYII=
 <ol>
 <li>When the model is trained with <code>max_depth=1</code>, the model suffers from high bias.</li>
 <li>When the model is trained with <code>max_depth=10</code>, the model suffers from high variance.</li>
-<li>For model with maximum depth of 1, the training error is very high and <code>R^2</code> score is very low hence it suffers from high bias. Whereas for the model with maximum depth of 10, the model is overfitting to the data isn't working vey well with the test data.</li>
+<li>For model with maximum depth of 1, the training error is very high and <code>R^2</code> score is very low hence it suffers from high bias. Whereas for the model with maximum depth of 10, there is a lot of difference between the training score and validation score, therefore there is high variance.</li>
 </ol>
 
 </div>
@@ -14649,11 +14649,8 @@ J4kAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-<br /></p>
-<ol>
-<li>Grid search means we have a set of models. We train each of the models and evaluate it using cross-validation. We then select the one that performes best.</li>
-<li>There are a lot many models that we can use for training. We use GridSearch to select the best model.</li>
-</ol>
+<br />
+GridSearch selects the best model from a set of models. We train each of the models and evaluate it using cross-validation. We then select the one that performs best. Any parameter provided when constructing an estimator may be optimized in this manner.</p>
 
 </div>
 </div>
@@ -14912,6 +14909,13 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 <li>Predicted selling price for Client 2's home: \$237,478.72</li>
 <li>Predicted selling price for Client 3's home: \$931,636.36</li>
 </ol>
+<p>The prices seems very reasonable as:</p>
+<ol>
+<li>Client 1 wants 5 rooms with average <code>'LSTAT'</code> and average <code>'PTRATIO'</code>.</li>
+<li>Client 2 wants 4 rooms with higher <code>'LSTAT'</code> and higher <code>'PTRATIO'</code>, hence prices are very low for the client.</li>
+<li>Client 3 wants 8 rooms with low <code>'LSTAT'</code> and low <code>'PTRATIO'</code>, therefore the prices are very high</li>
+</ol>
+<p>All these follows our assumptions that we made ealier in <strong>Feature Observation</strong>.</p>
 
 </div>
 </div>
